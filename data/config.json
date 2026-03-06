@@ -1,0 +1,18 @@
+{
+  "_안내": "환율과 연락처만 여기서 수정하세요",
+  "exchange": {
+    "usd": 0.00075,
+    "cny": 0.0054
+  },
+  "contact": {
+    "phone": "010-0000-0000",
+    "sms": "010-0000-0000",
+    "kakao": "https://open.kakao.com/o/xxxxxxxx",
+    "wechat": "wechat_id_here"
+  },
+  "agency": {
+    "ko": "제주 부동산",
+    "en": "Jeju Real Estate",
+    "zh": "济州房产"
+  }
+}

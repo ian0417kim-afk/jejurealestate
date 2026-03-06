@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="제주도 부동산 매물 - 아파트, 빌라, 단독주택, 토지, 단기임대">
+  <meta property="og:title" content="제주 부동산">
+  <meta property="og:description" content="제주도 최고의 부동산 매물을 만나보세요">
+  <meta property="og:image" content="images/hero.jpg">
+  <title>제주 부동산 | Jeju Real Estate | 济州房产</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏝</text></svg>">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ── 헤더 ── -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">🏝 제주<span>부동산</span></a>
+    <nav class="nav">
+      <a href="#home" data-lang="nav_home">홈</a>
+      <a href="#listings" data-lang="nav_listings">매물</a>
+      <a href="#contact-footer" data-lang="nav_contact">문의</a>
+    </nav>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="ko">KO</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="zh">ZH</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ── 모바일 메뉴 ── -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+  <a href="#home" data-lang="nav_home" onclick="document.getElementById('mobileMenu').classList.remove('open')">홈</a>
+  <a href="#listings" data-lang="nav_listings" onclick="document.getElementById('mobileMenu').classList.remove('open')">매물</a>
+  <a href="#contact-footer" data-lang="nav_contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">문의</a>
+  <div class="lang-switch" style="margin-top:32px">
+    <button class="lang-btn active" data-lang="ko">한국어</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="zh">中文</button>
+  </div>
+</div>
+
+<!-- ══════════════
+     메인 페이지
+══════════════ -->
+<div id="listPage">
+
+  <!-- 히어로 -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">🏝 JEJU ISLAND</div>
+      <h1 class="hero-title" data-lang="hero_title">제주도 부동산</h1>
+      <p class="hero-sub" data-lang="hero_sub">제주의 아름다운 삶을 찾아드립니다</p>
+      <div class="hero-search">
+        <input
+          type="text" id="searchInput"
+          data-lang-ph="search_placeholder"
+          placeholder="지역, 매물 종류 검색..."
+          autocomplete="off"
+        >
+        <button class="btn btn-primary" id="searchBtn">
+          🔍 <span data-lang="btn_search">검색</span>
+        </button>
+      </div>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- 필터바 -->
+  <div class="filter-bar" id="listings">
+    <div class="container filter-inner">
+      <div id="typeBtns" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+      <div class="deal-filter" id="dealBtns"></div>
+    </div>
+  </div>
+
+  <!-- 매물 목록 -->
+  <section class="listings-section">
+    <div class="container">
+      <div id="listingsGrid" class="listings-grid">
+        <div class="loading-state">
+          <div class="loading-spinner"></div>
+          <p data-lang="loading">매물을 불러오는 중...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 문의 배너 -->
+  <section class="contact-footer" id="contact-footer">
+    <div class="container contact-footer-inner">
+      <div class="contact-footer-text">
+        <h2 data-lang="footer_contact">상담 문의</h2>
+        <p id="agencyName">제주 부동산</p>
+      </div>
+      <div class="contact-footer-btns" id="footerBtns"></div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">🏝 제주부동산</div>
+      <p data-lang="footer_copy">© 2025 제주 부동산. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div><!-- /listPage -->
+
+<!-- ══════════════
+     상세 페이지
+══════════════ -->
+<div id="detailPage" style="display:none;"></div>
+
+<!-- 라이트박스 -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lbClose">✕</span>
+  <span class="lightbox-arrow lightbox-prev" id="lbPrev">&#8249;</span>
+  <img id="lbImg" src="" alt="사진 크게 보기">
+  <span class="lightbox-arrow lightbox-next" id="lbNext">&#8250;</span>
+</div>
+
+<!-- 모바일 하단 네비 -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <button class="mobile-nav-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <span class="mobile-nav-icon">🏠</span>
+      <span data-lang="nav_home">홈</span>
+    </button>
+    <button class="mobile-nav-btn" onclick="document.getElementById('listings').scrollIntoView({behavior:'smooth'})">
+      <span class="mobile-nav-icon">🔑</span>
+      <span data-lang="nav_listings">매물</span>
+    </button>
+    <button class="mobile-nav-btn" onclick="document.getElementById('contact-footer').scrollIntoView({behavior:'smooth'})">
+      <span class="mobile-nav-icon">📞</span>
+      <span data-lang="nav_contact">문의</span>
+    </button>
+    <button class="mobile-nav-btn" onclick="document.getElementById('mobileMenu').classList.add('open')">
+      <span class="mobile-nav-icon">☰</span>
+      <span>메뉴</span>
+    </button>
+  </div>
+</nav>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
